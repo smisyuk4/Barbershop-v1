@@ -1,0 +1,45 @@
+:root {
+    /* fonts */
+    --main-font: "Open Sans";
+    --secondary-font: "Raleway";
+
+    /* text */
+    --accent-txt-cl: #FF6C00;
+    --main-dark-theme:red;
+    --main-light-theme:red;
+
+    /* bgd */
+
+    /* others */
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    line-height: 1.67;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.list {
+    list-style: none;
+}
+
+.btn {
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 1.33;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    background-color: transparent;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: red;
+    color: red;
+    cursor: pointer;
+}
