@@ -16,6 +16,7 @@
     /* others */
     --dst: 30px;
     --cnt: 2;
+    --anim-reg: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -30,7 +31,7 @@ body {
     padding-left: 15px;
     padding-right: 15px;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto;   
     outline: 1px solid red;
 }
 
@@ -39,7 +40,8 @@ h2,
 h3,
 h4,
 ul,
-p {
+p,
+button {
     margin: 0;
     padding: 0;
 }
@@ -68,10 +70,14 @@ p {
 
 .btn-mode-light {
     color: var(--main-light-theme);
+
+    transition: background-color var(--anim-reg), color var(--anim-reg);
 }
 
 .btn-mode-dark {
     color: var(--main-dark-theme);
+
+    transition: background-color var(--anim-reg), color var(--anim-reg);
 }
 
 .btn:hover,
@@ -87,6 +93,8 @@ p {
     line-height: 1.36;
     letter-spacing: 0.2em;
     color: var(--main-light-theme);
+
+    transition: color var(--anim-reg);
 }
 
 .sotial-link:focus,
@@ -156,16 +164,22 @@ p {
 /* common styles end */
 
 /* header section */
-.header, 
-.hero,
 .price,
 .contacts {
     background-color: black;
 }
 
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+}
+
+.header .container {
     display: flex;   
-    align-items: center;   
+    align-items: center;       
 }
 
 .header-nav {   
@@ -186,6 +200,10 @@ p {
     display: flex;    
 }
 
+.header-list-item {
+    position: relative;
+}
+
 .header-list-item:not(:last-child) {
     margin-right: 40px;
 }
@@ -200,6 +218,8 @@ p {
 
     padding-top: 52px;
     padding-bottom: 52px;
+
+    transition: color var(--anim-reg);
 }
 
 .header-link:focus,
@@ -226,9 +246,40 @@ p {
     margin-right: 40px;
     padding-top: 52px;
     padding-bottom: 52px;
+
+    transition: color var(--anim-reg);
+}
+
+.activ-pg {
+    color: var(--accent-txt-cl);
+}
+
+.activ-pg::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+    border-radius: 1px;
+    background-color: currentColor;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(-30px);
 }
 
 /* hero section */
+.hero {
+    max-width: 1280px;
+    margin-right: auto;
+    margin-left: auto;
+    background-image: url(../images/Slider.jpg), linear-gradient(to right, #fff 155px, rgba(25, 28, 38, 0.2) 155px);
+    background-position: top right, center;   
+    background-repeat: no-repeat, no-repeat;
+    background-size: 1125px 698px, cover;    
+}
+
+
 .hero-title {    
     font-size: 72px;
     line-height: 1.18;   
@@ -242,12 +293,90 @@ p {
     letter-spacing: 0.1em;
     color: var(--secondary-txt-cl);
     background-color: transparent;
+
+    transition: color var(--anim-reg);
 }
 
 .hero-btn:focus,
 .hero-btn:hover {
     color: var(--main-dark-theme);
 }
+
+.slider {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-55px, -50%);
+    color: #ffffff;
+}
+
+.slider-control {
+    display: flex;
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    transform: translate(-55px, -40px);
+   
+    color: #ffffff;
+}
+
+.slider-control-item:first-child {
+    margin-right: 26px;
+}
+
+.slider-btn {    
+    display: block;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 1.36;    
+    letter-spacing: 0.1em;
+    text-align: left;
+    min-width: 60px;
+    padding-bottom: 8px;
+    
+    background-color: transparent;
+    border: none;
+    color: var(--secondary-txt-cl);
+    border-bottom: 1px solid currentColor;
+    cursor: pointer;
+}
+
+/* .slider-btn:nth-child(1) {
+    text-align: left;
+} */
+
+/* остановился на просмотре видео 1:19:29 */
+
+.slider-btn:hover,
+.slider-btn:focus {
+    color: var(--main-dark-theme);
+}
+
+
+
+
+.hero-wrp {
+    display: flex;
+    position: relative;
+}
+
+.hero-left-side {
+    flex-basis: 100px;
+    outline: 1px solid green;
+}
+
+.hero-right-side {
+    flex-grow: 1;
+    padding-top: 272px;   
+    padding-bottom: 206px;
+    max-width: 500px;
+    margin-left: 100px;
+
+    outline: 1px solid green;    
+}
+
 
 /* about section */
 .about {
@@ -484,6 +613,8 @@ p {
     border-radius: 50%;
     background-color: var(--main-dark-theme);
     color: var(--main-light-theme);
+
+    transition: color var(--anim-reg);
 }
 
 .team-icon {
