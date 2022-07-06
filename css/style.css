@@ -304,8 +304,7 @@ button {
     align-items: center;
     margin-bottom: 40px;
     transform: translateX(48px) rotate(-90deg);
-    transform-origin: bottom left;
-  
+    transform-origin: bottom left;  
 }
 
 .hero-list::before {
@@ -823,3 +822,57 @@ button {
     margin-right: 40px;
 }
 
+/* modal window */
+.backdrop-modal {
+    position: fixed;
+    top: 0;
+    left: 0;    
+    width: 100vw;
+    height: 100vh;  
+
+    background-color: rgba(157, 164, 189, 0.6);
+    transition: opacity 250ms var(--anim-reg),
+            visibility 250ms var(--anim-reg);
+}
+
+.modal {    
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: var(--third-txt-cl);
+}
+
+.backdrop-modal.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.modal-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 8px;
+    margin-right: 8px;
+
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--main-dark-theme);
+
+    transition: background-color var(--anim-reg);
+}
+
+.modal-btn:hover,
+.modal-btn:focus {
+    background-color: var(--third-txt-cl);
+    cursor: pointer;
+}
